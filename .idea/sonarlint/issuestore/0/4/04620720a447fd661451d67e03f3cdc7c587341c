@@ -1,0 +1,13 @@
+
+j
+java:S2095"MUse try-with-resources or close this "JarOutputStream" in a "finally" clause.(„ÒÔŒ8…ïë à/
+K
+java:S1481")Remove this unused "main" local variable.(‰æÂœıÿÿÿÿ8šÙõ à/
+[
+java:S4719+"9Replace charset name argument with StandardCharsets.UTF_8(‹•ú±úÿÿÿÿ8šÕë à/
+\
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ8€Ÿí à/
+Z
+java:S1197"8Move the array designator from the variable to the type.(ùï¾ÿÿÿÿÿ8Ìûê à/
+[
+java:S4719&"9Replace charset name argument with StandardCharsets.UTF_8(ÜèÛòÿÿÿÿÿ8šÕë à/

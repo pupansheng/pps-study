@@ -1,0 +1,10 @@
+# Project exclude paths
+/common-module/target/
+/histrix-study/target/
+/java-yufa/target/
+/my-spring-mvc/target/
+/pps-boot/target/
+/rxjava-learn/target/
+/spring-aspectj/target/
+/spring-source/target/
+/springboot-source/target/

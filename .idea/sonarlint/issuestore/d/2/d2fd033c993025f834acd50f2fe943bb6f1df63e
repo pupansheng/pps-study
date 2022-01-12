@@ -1,0 +1,8 @@
+
+t
+java:S1128"YRemove this unused import 'org.springframework.core.env.SystemEnvironmentPropertySource'.(ø²ª×ýÿÿÿÿ
+Y
+java:S1854"CRemove this useless assignment to local variable "propertySources".(øöµå
+S	java:S106"9Replace this use of System.out or System.err by a logger.(½õ£Ôûÿÿÿÿ
+J
+java:S1481"4Remove this unused "propertySources" local variable.(øöµå

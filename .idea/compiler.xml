@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AjcSettings">
+    <option name="ajcPath" value="$MAVEN_REPOSITORY$/org/aspectj/aspectjtools/1.8.13/aspectjtools-1.8.13.jar" />
+    <option name="cmdLineParams" value="-Xlint:ignore -showWeaveInfo" />
+    <option name="delegateToJavac" value="true" />
+  </component>
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot-source" />
+        <module name="common-module" />
+        <module name="pps-boot" />
+        <module name="histrix-study" />
+        <module name="spring-aspectj" />
+        <module name="rxjava-learn" />
+        <module name="java-yufa" />
+        <module name="my-spring-mvc" />
+        <module name="mybatis-learn" />
+        <module name="spring-source" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="histrix-study" options="-parameters" />
+      <module name="springboot-source" options="-parameters" />
+    </option>
+  </component>
+</project>

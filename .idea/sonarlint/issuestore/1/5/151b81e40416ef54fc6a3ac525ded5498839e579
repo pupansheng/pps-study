@@ -1,0 +1,10 @@
+
+e
+java:S20953"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş8á½Ãä/
+z
+java:S1128"XRemove this unused import 'org.apache.ibatis.session.defaults.DefaultSqlSessionFactory'.(¾‰ÇĞıÿÿÿÿ8»¨ûÀä/
+Z
+java:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ8Ò¥¿ä/
+Z	java:S1068"9Replace this use of System.out or System.err by a logger.(´ûüÿÿÿÿ8á½Ãä/
+y
+java:S1128"\Remove this unused import 'org.apache.ibatis.transaction.managed.ManagedTransactionFactory'.(Ñó·ó8™ØşÂä/

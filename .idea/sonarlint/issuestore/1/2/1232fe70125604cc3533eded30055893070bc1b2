@@ -1,0 +1,16 @@
+
+F	java:S108ˆ")Either remove or fill this block of code.(ıàÑÎ8ƒì“€à/
+Z	java:S106S"9Replace this use of System.out or System.err by a logger.(Ç«ˆúÿÿÿÿ8óÄ€à/
+i
+java:S18711"LThis branch's code block is the same as the block for the branch on line 42.(Š‘¾Ï8¶Ù¡ƒà/
+F	java:S108†")Either remove or fill this block of code.(å¥‡8«üÿß/
+E
+java:S1068"(Remove this unused "root" private field.(Ëõ‰8Ô»ÿß/
+W
+java:S1191"5Use classes from the Java API instead of Sun classes.(Û…’úÿÿÿÿ8åÒŞÿß/
+p
+java:S1450"SRemove the "root" field and declare it as a local variable in the relevant methods.(Ëõ‰8ÂÖğÿß/
+E	java:S108z")Either remove or fill this block of code.(ıàÑÎ8ö““€à/
+]	java:S125]"<This block of commented-out lines of code should be removed.(¡»¢üùÿÿÿÿ8«üÿß/
+O
+java:S1199r"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8«üÿß/

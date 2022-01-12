@@ -1,0 +1,19 @@
+
+Q
+java:S1854@";Remove this useless assignment to local variable "object1".(¿Ä¥–
+O
+java:S18544"9Remove this useless assignment to local variable "proxy".(µï¯²
+7
+java:S1116"Remove this empty statement.(º¶ž±øÿÿÿÿ
+P	java:S125 "<This block of commented-out lines of code should be removed.(ñô„l
+Q	java:S125#"<This block of commented-out lines of code should be removed.(ÅÞ„ê
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(¼Ò¡ùÿÿÿÿ
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(Úº¢Øøÿÿÿÿ
+V	java:S1257"<This block of commented-out lines of code should be removed.(ðñ„‘ÿÿÿÿÿ
+V	java:S125A"<This block of commented-out lines of code should be removed.(ìÝÃÙÿÿÿÿÿ
+@
+java:S14814"*Remove this unused "proxy" local variable.(µï¯²
+B
+java:S1481@",Remove this unused "object1" local variable.(¿Ä¥–
+P
+java:S1068":Remove this unused "advisorAdapterRegistry" private field.(®®â’

@@ -1,0 +1,10 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š…³µøÿÿÿÿ
+Z
+java:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ8ËÃÁä/
+W
+java:S1854"5Remove this useless assignment to local variable "o".(—‘¿Èûÿÿÿÿ8§„ôÂä/
+H
+java:S1481"&Remove this unused "o" local variable.(—‘¿Èûÿÿÿÿ8§„ôÂä/
+m
+java:S2259"KA "NullPointerException" could be thrown; "testInterface" is nullable here.(—‘¿Èûÿÿÿÿ8ÅİôÂä/

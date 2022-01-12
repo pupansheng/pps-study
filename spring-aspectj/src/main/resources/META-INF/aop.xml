@@ -1,0 +1,11 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <aspects>
+        <aspect name="com.pps.loadweave.MyLogAspect3"/>
+        <!--被植入得类-->
+        <weaver options="-verbose -showWeaveInfo">
+            <include within="com.pps..*"/>
+        </weaver>
+    </aspects>
+</aspectj>
+

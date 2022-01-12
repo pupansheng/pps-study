@@ -1,0 +1,7 @@
+
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ë™‡ñ
+j
+java:S1128
+"ORemove this unused import 'org.springframework.aop.framework.ProxyFactoryBean'.(ï„‘âüÿÿÿÿ
+W
+java:S1128"<Remove this unused import 'base.advice.aoptest.TestService'.(ìýµíÿÿÿÿÿ
