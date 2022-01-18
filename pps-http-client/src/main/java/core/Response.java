@@ -1,3 +1,5 @@
+package core;
+
 /**
  * @author Pu PanSheng, 2022/1/17
  * @version v1.0

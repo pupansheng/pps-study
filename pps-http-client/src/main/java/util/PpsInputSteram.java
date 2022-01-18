@@ -75,4 +75,14 @@ public class PpsInputSteram extends InputStream {
 
         throw new UnsupportedOperationException("不支持");
     }
+
+    public void cancel(){
+
+        selectionKey.cancel();
+        try {
+            socketChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

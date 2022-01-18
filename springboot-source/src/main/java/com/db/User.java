@@ -14,7 +14,7 @@ public class User {
 
     private int id;
 
-    private String names;
+    private String name;
 
     private Date birthday;
 
@@ -26,12 +26,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNames() {
-        return names;
+    public String getName() {
+        return name;
     }
 
-    public void setNames(String names) {
-        this.names = names;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getBirthday() {
@@ -53,7 +53,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", names='" + names + '\'' +
+                ", name='" + name + '\'' +
                 ", birthday=" + birthday +
                 '}';
     }

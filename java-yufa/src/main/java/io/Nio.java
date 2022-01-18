@@ -3,11 +3,13 @@ package io;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
@@ -50,6 +52,40 @@ public class Nio {
             System.out.println("收到信息size："+read);
 
         }
+
+
+    }
+
+    @Test
+    public void f2() throws Exception {
+
+        SocketChannel open = SocketChannel.open(new InetSocketAddress(8080));
+        Selector selector = Selector.open();
+        open.register(selector, SelectionKey.OP_READ);
+
+        while (true){
+
+            int select = selector.select();
+
+
+
+
+        }
+
+
+    }
+
+
+    @Test
+    public void server(){
+
+
+
+
+
+
+
+
 
 
     }

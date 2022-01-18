@@ -9,18 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pps-http-client</artifactId>
+    <artifactId>warp-window-count</artifactId>
 
 
-    <dependencies>
-
-        <!-- json转换 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.29</version>
-        </dependency>
-
-
-    </dependencies>
 </project>

@@ -5,6 +5,7 @@
 package com.db;
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -18,5 +19,10 @@ public interface TestMapper {
     @Select("select * from TEST_USER")
     List<User> queryList();
 
+    @Select("select * from TEST_USER where id=#{id}")
+    User queryOne(Integer id);
 
+
+    @Update(("update TEST_USER set name=#{name} where id=#{id}"))
+    int update(Integer id, String name);
 }

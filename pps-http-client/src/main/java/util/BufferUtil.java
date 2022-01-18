@@ -153,7 +153,16 @@ public class BufferUtil {
         BufferUtil.returnBuffer(buffer);
     }
 
-
+    public static byte[] getByteArray(byte[] bytes, int start, int len){
+        ByteBuffer buffer = getBuffer();
+        buffer.put(bytes, start, len);
+        return buffer.array();
+    }
+    public static byte[] getByteArray(byte[] bytes,  int len){
+        ByteBuffer buffer = getBuffer();
+        buffer.put(bytes, 0, len);
+        return buffer.array();
+    }
     public static byte[] listToArray(List<byte[]> data){
 
         int length=0;
