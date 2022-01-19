@@ -8,10 +8,7 @@ import core.Context;
 import util.PpsInputSteram;
 
 import java.io.IOException;
-import java.nio.channels.SelectableChannel;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -68,14 +65,23 @@ public class SocketTask implements Runnable {
 
                         channel = next.channel();
                         Context context = contextMap.get(channel);
+                        if(context==null){
+                            contextMap.remove(channel);
+                            channel.close();
+                        }
+
                         ppsInputSteram = new PpsInputSteram(context.getSocketChannel(), next);
                         context.setPpsInputSteram(ppsInputSteram);
-
                         dataReadStrategy.execute(context);
 
                     } catch (Exception e){
+
+                        if(e instanceof ClosedChannelException) {
+                            contextMap.remove(channel);
+                            channel.close();
+                        }
                         e.printStackTrace();
-                        contextMap.remove(channel);
+
                     }finally {
                         iterator.remove();
                     }

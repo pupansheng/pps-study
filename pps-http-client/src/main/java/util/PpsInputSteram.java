@@ -4,6 +4,8 @@
  */
 package util;
 
+import core.exception.ChannelCloseException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -40,6 +42,34 @@ public class PpsInputSteram extends InputStream {
         BufferUtil.returnBuffer(byteBuffer);
     }
 
+    public byte[] readAll() throws IOException {
+
+
+        byte[] line = new byte[1024];
+        int index = 0;
+        while (true) {
+            int data = (byte) read();
+            if (data > -1000) {
+
+                line[index] = (byte) data;
+
+                index++;
+                //扩容
+                if (index >= line.length) {
+                    byte[] newLine = new byte[line.length * 2];
+                    System.arraycopy(line, 0, newLine, 0, index);
+                    line = newLine;
+                }
+
+            } else {
+                break;
+            }
+        }
+
+        return line;
+
+    }
+
     @Override
     public int read() throws IOException {
 
@@ -57,7 +87,7 @@ public class PpsInputSteram extends InputStream {
                 selectionKey.cancel();
                 socketChannel.close();
                 BufferUtil.returnBuffer(byteBuffer);
-                return -1001;
+                throw new ChannelCloseException("通告已关闭");
             }else {
                 BufferUtil.returnBuffer(byteBuffer);
                 return -1000;

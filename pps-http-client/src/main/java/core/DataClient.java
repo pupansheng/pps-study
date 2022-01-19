@@ -1,5 +1,6 @@
 package core;
 
+import http.PpsHttpContext;
 import task.DataReadStrategy;
 import task.DefaultReadStrategy;
 import task.SocketTask;
@@ -7,6 +8,7 @@ import util.BufferUtil;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.channels.ClosedChannelException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
@@ -36,6 +38,7 @@ public class DataClient {
 
     public DataClient(int parallel) {
 
+        BufferUtil.initBufferPool();
         try {
             this.parallel = parallel;
             executorService = Executors.newFixedThreadPool(parallel);
@@ -64,11 +67,10 @@ public class DataClient {
             Long index = l % parallel;
             Selector selector = selectors[index.intValue()];
             socketChannel = SocketChannel.open(new InetSocketAddress(request.getIp(), request.getPort()));
-            Context context=new PpsContext(socketChannel, consumer);
+            Context context=new PpsHttpContext(socketChannel, consumer);
             contextMap.put(socketChannel,  context);
             socketChannel.configureBlocking(false);
             socketChannel.register(selector, SelectionKey.OP_READ);
-
             SocketChannel finalSocketChannel = socketChannel;
             BufferUtil.write(request.getBody(), (byteBuffer) -> {
                 try {
@@ -81,6 +83,11 @@ public class DataClient {
 
         } catch (IOException e) {
             contextMap.remove(socketChannel);
+            try {
+                socketChannel.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             throw new RuntimeException(e);
         }
     }

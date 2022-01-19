@@ -21,19 +21,19 @@ public class HttpClient extends DataClient {
         super(parallel);
     }
 
-    public void executeHttp(HttpRequest httpRequest, Consumer<HttpResponse> callback) {
+    public <T> void executeHttp(HttpRequest httpRequest, Consumer<HttpResponse<T>> callback) {
 
 
         Request request=new Request();
 
 
         request.setBody(httpRequest.createHttpMessage());
-        request.setIp(httpRequest.resoveIp());
-        request.setPort(httpRequest.resovePort());
+        request.setIp(httpRequest.getIp());
+        request.setPort(httpRequest.getPort());
 
         Consumer<Response> consumer=(r)->{
 
-            HttpResponse httpResponse=new HttpResponse(r.getContent());
+            HttpResponse httpResponse=new HttpResponse(r);
             callback.accept(httpResponse);
 
         };

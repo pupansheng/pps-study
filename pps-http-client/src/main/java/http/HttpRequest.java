@@ -4,6 +4,8 @@ package http;
 import com.alibaba.fastjson.JSON;
 import util.BufferUtil;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -14,17 +16,31 @@ import java.util.Optional;
  */
 public class HttpRequest {
 
-    private String protocol="http/1.1";
+    private String protocol="HTTP/1.1";
     private String method="GET";
     private String url;
+    private String ip;
+    private int port;
     private String contentType="application/json";
     private byte [] body=new byte[0];
+    private Map<String, String> requestPrams=new HashMap<>();
     private String charset="utf-8";
     private Map<String,String> headerParam=new HashMap<>();
 
     {
         headerParam.put("Accept","*/*");
         headerParam.put("Connection","Keep-Alive");
+        //headerParam.put("Accept-Encoding","gzip");
+        headerParam.put("Accept-Language","zh-cn");
+        InetAddress addr = null;
+        try {
+            addr = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        String hostname = addr.getHostAddress();
+        //必须要这个
+        headerParam.put("Host", hostname);
     }
 
     public String getProtocol() {
@@ -44,11 +60,46 @@ public class HttpRequest {
     }
 
     public String getUrl() {
+
         return url;
+
     }
 
     public void setUrl(String url) {
-        this.url = url;
+
+
+        if(!url.endsWith("/")){
+            url=url+"/";
+        }
+        int i = url.indexOf("://");
+        String substring = url.substring(i+3);
+        int i1 = substring.indexOf("/");
+        String substring1 = substring.substring(0, i1);
+        int index=  substring1.indexOf(":");
+        String port;
+        String ip;
+        if(index!=-1){//有端口
+            port= substring1.substring(index + 1);
+            ip=substring1.substring(0, index);
+        }else {//没有端口
+            ip=substring1;
+            port="80";
+        }
+
+        this.ip=ip;
+        this.port=Integer.parseInt(port);
+        this.url=substring.substring(i1);
+
+
+
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public int getPort() {
+        return port;
     }
 
     public String getContentType() {
@@ -79,57 +130,15 @@ public class HttpRequest {
         body=o;
     }
 
-    public String resoveIp(){
-        check();
 
-        if(!url.endsWith("/")){
-            url=url+"/";
-        }
-        int i = url.indexOf("://");
-        String substring = url.substring(i+3);
-        int i1 = substring.indexOf("/");
-        String substring1 = substring.substring(0, i1);
-        int index=  substring1.indexOf(":");
-        String port;
-        String ip;
-        if(index!=-1){
-            port= substring1.substring(index + 1);
-            ip=substring1.substring(0, index);
-        }else {
+    public void addParam(String k,String v){
 
-            ip=substring1;
-            port="80";
-
-        }
-
-        return ip;
+        requestPrams.put(k,v);
 
     }
 
-    public int resovePort(){
-        if(!url.endsWith("/")){
-            url=url+"/";
-        }
-        int i = url.indexOf("://");
-        String substring = url.substring(i+3);
-        int i1 = substring.indexOf("/");
-        String substring1 = substring.substring(0, i1);
-        int index=  substring1.indexOf(":");
-        String port;
-        String ip;
-        if(index!=-1){
-            port= substring1.substring(index + 1);
-            ip=substring1.substring(0, index);
-        }else {
 
-            ip=substring1;
-            port="80";
 
-        }
-
-        return Integer.parseInt(port);
-
-    }
 
     void  check(){
 
@@ -139,13 +148,31 @@ public class HttpRequest {
 
     byte[] createHttpMessage(){
 
-        if(contentType.equals("application/x-www-form-urlencoded")){
+         if(method.equals("POST")||method.equals("PUT")){
 
-        }else if(contentType.equals("application/json")){
+             if(contentType.equals("application/x-www-form-urlencoded")){
+                 StringBuilder stringBuilder=new StringBuilder();
+                 requestPrams.forEach((k,v)->{
+                     stringBuilder.append(k+"="+v);
+                     stringBuilder.append("&");
+                 });
+                 String s = stringBuilder.toString();
+                 String substring = s.substring(0, s.length() - 1);
+                 body=BufferUtil.strToBytes(substring);
+             }
 
-        }else {
+         }else if(method.equals("GET")){
 
-        }
+
+
+         }else if(method.equals("HEAD")){
+
+
+         }else if(method.equals("DELETE")){
+
+
+         }
+
         check();
 
         return createMessage(body);
@@ -183,6 +210,7 @@ public class HttpRequest {
          */
         httpr=encoding(httpr,0,httpr.length);
 
+
         String contentLen=String.valueOf(httpr.length);
 
         appendResponseHeader(returnStr,"Content-Type: "+contentType+";charset=" + charset);
@@ -191,10 +219,12 @@ public class HttpRequest {
             appendResponseHeader(returnStr,k +": "+v);
         });
 
+
         returnStr.append("\r\n");
 
         //请求体
-        byte[] bytes = BufferUtil.strToBytes(returnStr.toString(),charset);
+        String s= returnStr.toString();
+        byte[] bytes = BufferUtil.strToBytes(s,charset);
 
         int i = httpr.length + bytes.length;
         byte[] newC=new byte[i];

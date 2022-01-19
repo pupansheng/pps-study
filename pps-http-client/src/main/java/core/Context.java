@@ -6,9 +6,9 @@ package core;
 
 import util.PpsInputSteram;
 
+import java.io.IOException;
 import java.nio.channels.SocketChannel;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.function.Consumer;
 
 /**
@@ -23,39 +23,13 @@ public abstract class Context {
 
     protected Consumer<Response> consumer;
 
-    private List<byte[]> datas=new ArrayList<>(2);
-
-    private List<byte[]> nextData=new ArrayList<>(0);
 
     public Context(SocketChannel socketChannel, Consumer<Response> consumer) {
         this.socketChannel = socketChannel;
         this.consumer = consumer;
     }
 
-
-
-    public void addData(byte[] bytes){
-        datas.add(bytes);
-    }
-    public void addNextData(byte[] bytes){
-        nextData.add(bytes);
-    }
-
-    public abstract boolean isEnd(byte [] endLine);
-
-
-    public void endCallback(){
-
-        //调用
-        callBack();
-
-        //善后
-        datas.clear();
-        datas.addAll(nextData);
-        nextData.clear();
-    }
-
-    public abstract void callBack();
+    public abstract void endCallBack(Response response);
 
     public PpsInputSteram getPpsInputSteram() {
         return ppsInputSteram;
@@ -73,14 +47,6 @@ public abstract class Context {
         this.consumer = consumer;
     }
 
-    public List<byte[]> getDatas() {
-        return datas;
-    }
-
-    public void setDatas(List<byte[]> datas) {
-        this.datas = datas;
-    }
-
     public SocketChannel getSocketChannel() {
         return socketChannel;
     }
@@ -88,4 +54,6 @@ public abstract class Context {
     public void setSocketChannel(SocketChannel socketChannel) {
         this.socketChannel = socketChannel;
     }
+
+    public abstract void read() throws IOException;
 }
