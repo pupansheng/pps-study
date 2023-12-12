@@ -57,8 +57,6 @@ f
 6pps-boot/src/main/java/com/pps/boot/web/WebServer.java,1\5\156c1cb3e83c754c82bad3fda11cfdf4b4c1d8f7
 y
 Ipps-boot/src/main/java/com/pps/boot/context/PpsWebApplicationContext.java,8\b\8bad011a2d4dd6e76ff5c2dbf99a98c406baca47
-O
-my-spring-mvc/my-spring-mvc.iml,1\9\19b2f283a9b54e80ef90b5c756443809755f6397
 c
 3pps-boot/src/main/java/com/pps/boot/PpsBootApp.java,1\0\106d79d8db98075c4be55eac1e004207fedd9272
 r
@@ -139,3 +137,7 @@ f
 0springboot-source/src/main/java/com/db/User.java,3\f\3fea9d2c1f9d8c46fb76d43b150c0d7935f8bbbe
 b
 2springboot-source/src/main/java/com/db/DbTest.java,1\5\151b81e40416ef54fc6a3ac525ded5498839e579
+Y
+)java-yufa/src/main/java/proxy/Mapper.java,7\8\78f2d13d9fa9df3b5abf3c787f8880c02d85a1d1
+\
+,java-yufa/src/main/java/proxy/ProxyTest.java,f\f\ff5e0583596845f6f62c627114f15969371562f1

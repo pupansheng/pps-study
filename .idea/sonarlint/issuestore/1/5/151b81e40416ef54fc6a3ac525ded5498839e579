@@ -1,10 +1,26 @@
 
-e
-java:S20953"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş8á½Ãä/
-z
-java:S1128"XRemove this unused import 'org.apache.ibatis.session.defaults.DefaultSqlSessionFactory'.(¾‰ÇĞıÿÿÿÿ8»¨ûÀä/
-Z
-java:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ8Ò¥¿ä/
-Z	java:S1068"9Replace this use of System.out or System.err by a logger.(´ûüÿÿÿÿ8á½Ãä/
+j
+java:S2095;"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(µò×•ùÿÿÿÿ8ß³şñä/
 y
 java:S1128"\Remove this unused import 'org.apache.ibatis.transaction.managed.ManagedTransactionFactory'.(Ñó·ó8™ØşÂä/
+T	java:S106C"9Replace this use of System.out or System.err by a logger.(Çóà8™èÿñä/
+W
+java:S1128"5Remove this unused import 'java.lang.reflect.Method'.(Í“¯äüÿÿÿÿ8ä‰ïä/
+z
+java:S1128"XRemove this unused import 'org.apache.ibatis.session.defaults.DefaultSqlSessionFactory'.(¾‰ÇĞıÿÿÿÿ8»¨ûÀä/
+Z	java:S106B"9Replace this use of System.out or System.err by a logger.(ÚµŠ–ûÿÿÿÿ8Ò¸ıñä/
+e
+java:S20958"HUse try-with-resources or close this "SqlSession" in a "finally" clause.(å„Ş8á½Ãä/
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(½°Òûÿÿÿÿ8•íòä/
+M
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8—úüñä/
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ë¤êñä/
+]
+java:S1128"@Remove this unused import 'java.lang.reflect.InvocationHandler'.(Ùé8ä‰ïä/
+Z
+java:S1197%"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ8Ò¥¿ä/
+U	java:S106W"9Replace this use of System.out or System.err by a logger.(½§«—8Ò¸ıñä/
+C
+java:S1172S"&Remove these unused method parameters.(ªÄ÷ï8Ò¸ıñä/
+Z	java:S106H"9Replace this use of System.out or System.err by a logger.(Ø×Ìöûÿÿÿÿ8•íòä/

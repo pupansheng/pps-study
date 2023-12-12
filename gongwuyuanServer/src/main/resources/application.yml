@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: pps123
+    url: jdbc:mysql://110.42.191.254:3306/test?useUnicode=true&characterEncoding=utf8
+  data:
+    elasticsearch:
+      client:
+        urls: 192.168.56.10:9200
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

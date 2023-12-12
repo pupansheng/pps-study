@@ -11,21 +11,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot-source" />
-        <module name="common-module" />
-        <module name="pps-boot" />
-        <module name="histrix-study" />
-        <module name="spring-aspectj" />
-        <module name="rxjava-learn" />
         <module name="java-yufa" />
+        <module name="common-module" />
         <module name="my-spring-mvc" />
+        <module name="rxjava-learn" />
+        <module name="histrix-study" />
         <module name="mybatis-learn" />
+        <module name="springboot-source" />
+        <module name="spring-aspectj" />
+        <module name="pps-boot" />
         <module name="spring-source" />
+        <module name="gongwuyuanServer" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gongwuyuanServer" options="-parameters" />
       <module name="histrix-study" options="-parameters" />
       <module name="springboot-source" options="-parameters" />
     </option>
